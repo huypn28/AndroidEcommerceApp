@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "498523439217",
+    "project_id": "appthuongmaidientu-54a2b",
+    "storage_bucket": "appthuongmaidientu-54a2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498523439217:android:b55e18ac00b32426f91bd0",
+        "android_client_info": {
+          "package_name": "com.example.appthuongmaidientu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498523439217-63fo3h4cgd0rpuje91gbhgjq8k7sk2ab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdJMf7ujSXm8kKH1yF5hI_NaH0NHyYg58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498523439217-63fo3h4cgd0rpuje91gbhgjq8k7sk2ab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
