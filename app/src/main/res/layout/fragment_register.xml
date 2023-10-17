@@ -23,13 +23,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/tvAppName"
             style="@style/h3"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="50dp"
             android:drawableStart="@drawable/ic_kleine_shape"
             android:drawablePadding="6dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/guidelineLoginLeft"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Huy"
             ></TextView>
 
 
@@ -39,9 +38,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="92dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="Register"
+            android:text="Đăng kí"
             android:textAlignment="center"
             android:textSize="35sp"
             app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
@@ -54,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:gravity="center"
-            android:text="Do you have an account? Log in"
+            android:text="Bạn đã có tài khoản? Đăng nhập"
             android:textAlignment="center"
             app:layout_constraintStart_toStartOf="@+id/guidelineLoginLeft"
 
@@ -65,8 +64,8 @@
             style="@style/editText"
             android:layout_width="0dp"
             android:layout_height="@dimen/edittextHeight"
-            android:layout_marginTop="40dp"
-            android:hint="FirstName"
+            android:layout_marginTop="30dp"
+            android:hint="Họ"
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
             app:layout_constraintStart_toStartOf="@+id/guidelineLoginLeft"
@@ -81,7 +80,7 @@
             app:layout_constraintTop_toBottomOf="@+id/edFirstNameRegister"
             style="@style/editText"
             android:inputType="text"
-            android:hint="LastName"
+            android:hint="Tên"
             android:layout_marginTop="15dp"
 
 
@@ -111,7 +110,7 @@
             app:layout_constraintTop_toBottomOf="@+id/edEmailRegister"
             style="@style/editText"
             android:inputType="textPassword"
-            android:hint="Password"
+            android:hint="Mật khẩu"
             android:layout_marginTop="15dp"
 
 
@@ -120,10 +119,10 @@
 
 
         <ImageView
-            android:id="@+id/facebookLogin"
+            android:id="@+id/facebookRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintStart_toStartOf="@+id/guidelineLoginLeft"
             app:layout_constraintTop_toBottomOf="@+id/buttonRegister"
             android:src="@drawable/facebook_login"
@@ -134,17 +133,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Facebook"
-            app:layout_constraintStart_toStartOf="@+id/facebookLogin"
-            app:layout_constraintTop_toTopOf="@id/facebookLogin"
-            app:layout_constraintBottom_toBottomOf="@+id/facebookLogin"
-            app:layout_constraintEnd_toEndOf="@id/facebookLogin"
+            app:layout_constraintStart_toStartOf="@+id/facebookRegister"
+            app:layout_constraintTop_toTopOf="@id/facebookRegister"
+            app:layout_constraintBottom_toBottomOf="@+id/facebookRegister"
+            app:layout_constraintEnd_toEndOf="@id/facebookRegister"
             ></TextView>
 
         <ImageView
-            android:id="@+id/googleLogin"
+            android:id="@+id/googleRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="@+id/guidelineLoginRight"
             app:layout_constraintTop_toBottomOf="@+id/buttonRegister"
             android:src="@drawable/google_login"
@@ -155,22 +154,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Google"
-            app:layout_constraintStart_toStartOf="@+id/googleLogin"
-            app:layout_constraintTop_toTopOf="@id/googleLogin"
-            app:layout_constraintBottom_toBottomOf="@+id/googleLogin"
-            app:layout_constraintEnd_toEndOf="@id/googleLogin"
+            app:layout_constraintStart_toStartOf="@+id/googleRegister"
+            app:layout_constraintTop_toTopOf="@id/googleRegister"
+            app:layout_constraintBottom_toBottomOf="@+id/googleRegister"
+            app:layout_constraintEnd_toEndOf="@id/googleRegister"
             ></TextView>
 
 
         <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/buttonRegister"
             style="@style/blueButtonStyle"
+            android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="@dimen/mediumButtonHeight"
-            android:layout_marginTop="12dp"
-            android:text="Register"
+            android:layout_marginTop="20dp"
+            android:text="Đăng kí"
             app:layout_constraintEnd_toEndOf="@+id/guidelineLoginRight"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guidelineLoginLeft"
             app:layout_constraintTop_toBottomOf="@+id/edPasswordRegister"
             app:spinning_bar_color="@color/white"></br.com.simplepass.loadingbutton.customViews.CircularProgressButton>

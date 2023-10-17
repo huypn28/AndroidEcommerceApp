@@ -13,7 +13,10 @@
 
         <action
             android:id="@+id/action_introductionFragment_to_accountOptionsFragment3"
-            app:destination="@id/accountOptionsFragment" />
+            app:destination="@id/accountOptionsFragment"
+            app:enterAnim="@anim/from_bottom"
+
+            />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -21,9 +24,15 @@
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
 
-    <action
+        <action
             android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/registerFragment"
+            app:popUpTo="@id/accountOptionsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -31,9 +40,15 @@
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register">
 
-    <action
+        <action
             android:id="@+id/action_registerFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/accountOptionsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/accountOptionsFragment"
@@ -41,9 +56,13 @@
         android:label="AccountOptionsFragment"
         tools:layout="@layout/fragment_account_options">
 
-    <action
+        <action
             android:id="@+id/action_accountOptionsFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_accountOptionsFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
