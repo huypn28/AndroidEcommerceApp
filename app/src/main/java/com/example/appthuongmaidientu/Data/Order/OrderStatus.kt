@@ -2,6 +2,7 @@ package com.example.appthuongmaidientu.Data.Order
 
 sealed class OrderStatus(val status:String) {
     object Ordered: OrderStatus("Đã đặt hàng")
+    object Paid: OrderStatus("Đã thanh toán")
     object Canceled: OrderStatus("Đã hủy")
     object Confirmed: OrderStatus("Đã xác nhận")
     object Shipped: OrderStatus("Đã vận chuyển")
@@ -15,6 +16,9 @@ fun getOrderStatus(status: String):OrderStatus{
     return when (status){
         "Đã đặt hàng"->{
             OrderStatus.Ordered
+        }
+        "Đã thanh toán"->{
+            OrderStatus.Paid
         }
         "Đã hủy"->{
             OrderStatus.Canceled

@@ -157,7 +157,7 @@
             app:layout_constraintTop_toBottomOf="@+id/totalBoxContainer"
             app:layout_constraintStart_toStartOf="@+id/leftGuideLine"
             app:layout_constraintEnd_toEndOf="@+id/rightGuideLine"
-            android:text="Thanh toán"
+            android:text="Đặt hàng"
             android:layout_marginTop="45dp"
             android:layout_marginBottom="20dp"
             app:spinning_bar_color="@color/white"

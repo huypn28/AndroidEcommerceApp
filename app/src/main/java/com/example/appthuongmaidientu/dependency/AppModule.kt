@@ -3,7 +3,7 @@ package com.example.appthuongmaidientu.dependency
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
 import com.example.appthuongmaidientu.Firebase.FirebaseCommon
-import com.example.appthuongmaidientu.Util.Constants.INTRODUCTION_SP
+import com.example.appthuongmaidientu.Constants.INTRODUCTION_SP
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore

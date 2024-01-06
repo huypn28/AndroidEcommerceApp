@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.appthuongmaidientu.Adapter.BillingProductsAdapter
 import com.example.appthuongmaidientu.Data.Order.OrderStatus
 import com.example.appthuongmaidientu.Data.Order.getOrderStatus
+import com.example.appthuongmaidientu.EncryptionUtils
+import com.example.appthuongmaidientu.Constants.KEYPASSWORD
 import com.example.appthuongmaidientu.Util.VerticalItemDecoration
 import com.example.appthuongmaidientu.databinding.FragmentOrderDetailBinding
 
@@ -45,6 +47,7 @@ class OrderDetailFragment:Fragment() {
             stepView.setSteps(
                 mutableListOf(
                     OrderStatus.Ordered.status,
+                    OrderStatus.Paid.status,
                     OrderStatus.Confirmed.status,
                     OrderStatus.Shipped.status,
                     OrderStatus.Delivered.status
@@ -53,9 +56,10 @@ class OrderDetailFragment:Fragment() {
 
             val currentOrderStatus=when(getOrderStatus(order.orderStatus)){
                 is OrderStatus.Ordered -> 0
-                is OrderStatus.Confirmed -> 1
-                is OrderStatus.Shipped -> 2
-                is OrderStatus.Delivered -> 3
+                is OrderStatus.Paid -> 1
+                is OrderStatus.Confirmed -> 2
+                is OrderStatus.Shipped -> 3
+                is OrderStatus.Delivered -> 4
                 else -> 0
             }
 
@@ -65,9 +69,17 @@ class OrderDetailFragment:Fragment() {
                 stepView.done(true)
             }
 
-            tvFullName.text=order.address.fullName
-            tvAddress.text="${order.address.address}"
-            tvPhoneNumber.text=order.address.phone
+
+
+// Giải mã dữ liệu
+            val decryptedFullName = EncryptionUtils.decrypt(order.address.fullName, KEYPASSWORD)
+            val decryptedAddress = EncryptionUtils.decrypt(order.address.address, KEYPASSWORD)
+            val decryptedPhoneNumber = EncryptionUtils.decrypt(order.address.phone, KEYPASSWORD)
+
+// Hiển thị dữ liệu đã giải mã lên giao diện người dùng
+            tvFullName.text = decryptedFullName
+            tvAddress.text = decryptedAddress
+            tvPhoneNumber.text = decryptedPhoneNumber
 
             tvTotalPrice.text= "${String.format("%.0f", order.totalPrice)} VNĐ"
 

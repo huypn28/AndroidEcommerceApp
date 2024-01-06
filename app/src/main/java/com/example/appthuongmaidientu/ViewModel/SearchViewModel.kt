@@ -3,7 +3,7 @@ package com.example.appthuongmaidientu.ViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.appthuongmaidientu.Data.Product
-import com.example.appthuongmaidientu.Util.Constants.PRODUCTS_COLLECTION
+import com.example.appthuongmaidientu.Constants.PRODUCTS_COLLECTION
 import com.example.appthuongmaidientu.Util.Resource
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

@@ -11,6 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.appthuongmaidientu.Data.Address
+import com.example.appthuongmaidientu.EncryptionUtils
+import com.example.appthuongmaidientu.Constants.KEYPASSWORD
 import com.example.appthuongmaidientu.Util.Resource
 import com.example.appthuongmaidientu.ViewModel.AddressViewModel
 import com.example.appthuongmaidientu.databinding.FragmentAddressBinding
@@ -77,21 +79,35 @@ class AddressFragment:Fragment() {
             binding.buttonDelelte.visibility=View.GONE
         }else{
             binding.apply {
-                edAddressTitle.setText(address.addressTiTle)
-                edFullName.setText(address.fullName)
-                edAddress.setText(address.address)
-                edPhone.setText(address.phone)
-                edNote.setText(address.note)
+                // Giải mã dữ liệu
+                val decryptedTitle = EncryptionUtils.decrypt(address.addressTiTle, KEYPASSWORD)
+                val decryptedFullName = EncryptionUtils.decrypt(address.fullName, KEYPASSWORD)
+                val decryptedAddress = EncryptionUtils.decrypt(address.address, KEYPASSWORD)
+                val decryptedPhone = EncryptionUtils.decrypt(address.phone, KEYPASSWORD)
+                val decryptedNote = EncryptionUtils.decrypt(address.note, KEYPASSWORD)
+
+                // Hiển thị dữ liệu đã giải mã trên giao diện người dùng
+                edAddressTitle.setText(decryptedTitle)
+                edFullName.setText(decryptedFullName)
+                edAddress.setText(decryptedAddress)
+                edPhone.setText(decryptedPhone)
+                edNote.setText(decryptedNote)
+
             }
         }
 
         binding.apply {
             buttonSave.setOnClickListener {
+
+
                 val addressTitle=edAddressTitle.text.toString()
                 val fullName=edFullName.text.toString()
                 val address=edAddress.text.toString()
                 val phone=edPhone.text.toString()
                 val note=edNote.text.toString()
+
+
+
                 val addresses=Address(addressTitle,fullName,address,phone,note)
 
                 viewModel.addAddress(addresses)

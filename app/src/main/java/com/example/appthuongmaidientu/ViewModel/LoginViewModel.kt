@@ -1,8 +1,9 @@
 package com.example.appthuongmaidientu.ViewModel
 
-import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.appthuongmaidientu.EncryptionUtils
+import com.example.appthuongmaidientu.Constants.KEYPASSWORD
 import com.example.appthuongmaidientu.Util.Resource
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -24,8 +25,11 @@ class LoginViewModel @Inject constructor(
 
     fun login(email:String,password:String){
         viewModelScope.launch { _login.emit(Resource.Loading()) }
+        //  mã hóa mật khẩu trước khi đăng nhập
+        val encryptedPassword = EncryptionUtils.encrypt(password, KEYPASSWORD)
+
         firebaseAuth.signInWithEmailAndPassword(
-            email,password
+            email,encryptedPassword
         ).addOnSuccessListener {
             viewModelScope.launch {
                 it.user?.let {

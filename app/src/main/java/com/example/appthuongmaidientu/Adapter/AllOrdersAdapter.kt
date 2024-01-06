@@ -26,6 +26,9 @@ class AllOrdersAdapter : RecyclerView.Adapter<AllOrdersAdapter.OrdersViewHolder>
                     is OrderStatus.Ordered -> {
                         ColorDrawable(resources.getColor(R.color.g_orange_yellow))
                     }
+                    is OrderStatus.Paid -> {
+                        ColorDrawable(resources.getColor(R.color.g_orange_yellow))
+                    }
                     is OrderStatus.Confirmed -> {
                         ColorDrawable(resources.getColor(R.color.g_green))
                     }

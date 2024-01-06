@@ -2,10 +2,11 @@ package com.example.appthuongmaidientu.ViewModel
 
 import androidx.lifecycle.ViewModel
 import com.example.appthuongmaidientu.Data.User
+import com.example.appthuongmaidientu.EncryptionUtils
 import com.example.appthuongmaidientu.Util.*
-import com.example.appthuongmaidientu.Util.Constants.USER_COLLECTION
+import com.example.appthuongmaidientu.Constants.KEYPASSWORD
+import com.example.appthuongmaidientu.Constants.USER_COLLECTION
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
@@ -34,17 +35,16 @@ class RegisterViewModel @Inject constructor(
         runBlocking {
             _register.emit(Resource.Loading())
         }
-
-        firebaseAuth.createUserWithEmailAndPassword(user.email, password)
+            // Mã hóa password trước khi gửi lên Firebase
+            val encryptedPassword = EncryptionUtils.encrypt(password, KEYPASSWORD)
+        firebaseAuth.createUserWithEmailAndPassword(user.email, encryptedPassword)
             .addOnSuccessListener {
                 it.user?.let {
                     saveUserInfo(it.uid,user)
 
-                   // _register.value = Resource.Success(it)
                 }
             }.addOnFailureListener {
                 _register.value = Resource.Error(it.message.toString())
-
             }
         }else{
             val registerFieldState=RegisterFieldState(

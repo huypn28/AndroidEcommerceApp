@@ -8,6 +8,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\PC\\your_keystore_file.keystore')
+            storePassword '28042001'
+            keyAlias 'tran huy'
+            keyPassword '28042001'
+        }
+    }
     namespace 'com.example.appthuongmaidientu'
     compileSdk 33
 
@@ -20,10 +28,24 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\PC\\your_keystore_file.keystore')
+            storePassword '28042001'
+            keyAlias 'your_key_alias'
+            keyPassword '28042001'
+        }
+        debug {
+            storeFile file('C:\\Users\\PC\\your_keystore_file.keystore')
+            storePassword '28042001'
+            keyAlias 'your_key_alias'
+            keyPassword '28042001'
+        }
+    }
     buildTypes {
         release {
-            minifyEnabled false
+            signingConfig signingConfigs.release
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -41,6 +63,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.github.momo-wallet:mobile-sdk:1.0.7'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
@@ -48,6 +71,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:21.0.3'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.1.1'
     implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.3'
+    implementation fileTree(dir: 'D:\\zalopay', include: ['*.aar', '*.jar'], exclude: [])
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -85,6 +110,15 @@ dependencies {
 
     //coroutines with firebase
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3'
+
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    implementation("com.squareup.okhttp3:okhttp:4.6.0")
+    implementation("commons-codec:commons-codec:1.14")
+
+
+
+
 
 
 

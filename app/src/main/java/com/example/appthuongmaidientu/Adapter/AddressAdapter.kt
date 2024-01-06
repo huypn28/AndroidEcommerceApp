@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.appthuongmaidientu.Data.Address
-import com.example.appthuongmaidientu.Data.Product
+import com.example.appthuongmaidientu.EncryptionUtils
 import com.example.appthuongmaidientu.R
 import com.example.appthuongmaidientu.databinding.AddressRvItemBinding
 
@@ -18,7 +18,9 @@ class AddressAdapter : RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() 
         ViewHolder(binding.root){
             fun bind(address: Address,isSelected:Boolean){
                 binding.apply {
-                    buttonAddress.text=address.addressTiTle
+                    // Lấy dữ liệu từ đối tượng address
+                    val decryptedTitle = EncryptionUtils.decrypt(address.addressTiTle, "your_password")
+                    buttonAddress.text = decryptedTitle
                     if (isSelected){
                         buttonAddress.background=ColorDrawable(itemView.context.resources.getColor(R.color.g_blue))
                     }else{
